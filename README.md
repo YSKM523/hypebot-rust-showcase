@@ -15,9 +15,17 @@
   <a href="https://github.com/YSKM523">@YSKM523</a>
 </p>
 
-# hypebot-rs
+# hypebot-rs | Rust Hyperliquid Trading Bot
 
 A Rust-based Hyperliquid trading bot built with production-grade architecture: typed market data pipelines, per-symbol runners, serialized order execution, persistent state, dry-run support, and long-running websocket resilience.
+
+## Snapshot
+
+- Language: Rust
+- Async runtime: Tokio
+- Exchange target: Hyperliquid
+- Visibility model: private source, public showcase
+- Core pitch: reliability-first trading infrastructure rather than a toy bot script
 
 > The implementation repository is private. This showcase exists to share what is being built, the engineering direction, and progress — without exposing the full source.
 
@@ -41,10 +49,10 @@ The system is split into four distinct layers:
 
 | Layer | Components | Responsibility |
 |-------|-----------|----------------|
-| **Transport** | `HlWsClient`, `REST Client` | Websocket subscriptions, heartbeat, reconnect flow, HTTP order interface |
+| **Transport** | `HlWsClient`, `HlRestClient` | Websocket subscriptions, heartbeat, reconnect flow, HTTP order interface |
 | **Processing** | `MarketFeed`, `SymbolRunner`, `Strategy` | Typed event pipeline, per-symbol lifecycle, signal generation |
-| **Execution** | `OrderExecutor`, `PositionMgr` | Serialized exchange calls, order state tracking |
-| **Infrastructure** | `State`, `Watchdog`, `Notifications` | Persistent context, runtime health monitoring, Discord alerts + dry-run |
+| **Execution** | `OrderExecutor`, `PositionTracker` | Serialized exchange calls, order state tracking |
+| **Infrastructure** | `State`, `Watchdog`, `DiscordNotifier` | Persistent context, runtime health monitoring, Discord alerts + dry-run |
 
 ## Strategy
 
