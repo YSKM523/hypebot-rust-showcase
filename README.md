@@ -11,14 +11,14 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/YSKM523/hypebot-rs-showcase/issues/new">Request walkthrough</a> ·
+  <a href="https://github.com/YSKM523/hypebot-rust-showcase/issues/new">Request walkthrough</a> ·
   <a href="./CHANGELOG.md">Changelog</a> ·
   <a href="https://github.com/YSKM523">@YSKM523</a>
 </p>
 
-# hypebot-rs | Rust Hyperliquid Trading Bot
+# hypebot-rust-showcase | Rust Hyperliquid Trading Bot
 
-A Rust-based Hyperliquid trading bot built with production-grade architecture: typed market data pipelines, per-symbol runners, serialized order execution, persistent state, dry-run support, and long-running websocket resilience.
+A public-facing showcase for a private Rust-based Hyperliquid trading bot built with production-grade architecture: typed market data pipelines, per-symbol runners, serialized order execution, persistent state, dry-run support, and long-running websocket resilience.
 
 ## Snapshot
 
@@ -51,6 +51,16 @@ This project is not just "a bot that happens to be written in Rust." The system 
 - explicit `Result`-style error handling and recoverability
 - isolated runners and channels that map cleanly to long-running services
 - strategy and execution boundaries that benefit from stronger types and ownership discipline
+
+## Why Rust Is A Strength Here
+
+Rust is not just a branding choice for this project. It improves the fit between the codebase and the problem:
+
+- **Safer long-running runtime behavior**: fewer hidden runtime surprises for a process that is expected to stay alive across reconnects, stale feeds, and order events
+- **Stronger concurrency model**: async tasks, channels, and isolated runners map naturally onto market data, strategy, and execution pipelines
+- **Type-driven system design**: typed events and commands make it easier to reason about what can move through the system
+- **Better execution discipline**: clearer ownership and explicit state transitions help keep order flow and recovery logic coherent
+- **More credible systems engineering**: for visitors, Rust signals that this is being built as infrastructure, not just as a disposable script
 
 Public illustrative Rust example:
 
@@ -132,7 +142,7 @@ Not "buy when X crosses Y" — this encodes market structure, volatility context
 
 ## Links
 
-- Showcase: [YSKM523/hypebot-rs-showcase](https://github.com/YSKM523/hypebot-rs-showcase)
+- Showcase: [YSKM523/hypebot-rust-showcase](https://github.com/YSKM523/hypebot-rust-showcase)
 - Private source: `YSKM523/hypebot-rs`
 - Changelog: [CHANGELOG.md](./CHANGELOG.md)
-- Contact: [open an issue](https://github.com/YSKM523/hypebot-rs-showcase/issues/new)
+- Contact: [open an issue](https://github.com/YSKM523/hypebot-rust-showcase/issues/new)
